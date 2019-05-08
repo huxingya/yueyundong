@@ -8,24 +8,24 @@
 </template>
 
 <script>
-export default {
-  name: 'Head',
-  props:["title","rightShow"],
-  data () {
-    return {
-      name:"",
-      // rightShow:false
-    }
-  },
-  methods:{
-    onClickLeft(){
-      this.$router.go(-1)
-    }
-  },
-  created() {
+  export default {
+    name: 'Head',
+    props:["title","rightShow"],
+    data () {
+      return {
+        name:"",
+        // rightShow:false
+      }
+    },
+    methods:{
+      onClickLeft(){
+        this.$router.go(-1)
+      }
+    },
+    created() {
 
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
