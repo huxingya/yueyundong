@@ -1,13 +1,22 @@
 <template>
-    <div>测试</div>
+    <div>
+        <!--<Head></Head>-->
+         <div class="container">
+             <router-view></router-view>
+         </div>
+
+    </div>
 </template>
 
 <script>
+    // import Head from "@/components/Head"
     export default {
-        name: "Index"
+        name: "Index",
+       /* components:{
+            Head
+        }*/
     }
 </script>
 
-<style scoped>
-
+<style scoped="">
 </style>
