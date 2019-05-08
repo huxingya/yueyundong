@@ -195,6 +195,26 @@ export default new Router({
           component: MovementPart,
         }
       ]
+    },
+    , {
+      path: '/plaza_detail',
+      name: PlazaDetail,
+      component: PlazaDetail
+    }
+    , {
+      path: '/plaza_search',
+      name: PlazaSearch,
+      component: PlazaSearch
+    }
+    , {
+      path: '/plaza_issue',
+      name: PlazaIssue,
+      component: PlazaIssue
+    }
+    , {
+      path: '/video_detail',
+      name: VideoDetail,
+      component: VideoDetail
     }
   ]
 })
