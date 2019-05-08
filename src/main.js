@@ -3,6 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
+import Vant from 'vant';
+import axios from 'axios'
+import 'vant/lib/index.css';
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+import './assets/js/rem'
+
+import Share from 'vue-social-share'
+import 'vue-social-share/dist/client.css';
+
+Vue.prototype.$axios = axios
+Vue.use(VueAwesomeSwiper)
+
+Vue.use(Vant);
+
+Vue.use(Share)
 
 Vue.config.productionTip = false
 
@@ -10,6 +27,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

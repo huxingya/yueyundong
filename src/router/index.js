@@ -1,6 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/views/Index'
+import Main from '@/views/Main'
+import MyTraining from '@/views/MyTraining'
+import Drill from '@/views/Drill'
+
+
+import Running from '@/views/Running'
+import RunningSetting from '@/views/RunningSetting'
+import AllHistory from '@/views/AllHistory'
+
+
+import DrillRecommend from '@/views/DrillRecommend'
+import Plaza from '@/views/Plaza'
+import Search from '@/views/Search'
+import VideoDrill from '@/views/VideoDrill'
+import TrainingPlan from '@/views/TrainingPlan'
+import MovementData from '@/views/MovementData'
+import MovementList from '@/views/MovementList'
+import MovementPart from '@/views/MovementPart'
+
+import PlazaDetail from '@/views/PlazaDetail'
+import PlazaSearch from '@/views/PlazaSearch'
+import PlazaIssue from '@/views/PlazaIssue'
+
+import VideoDetail from '@/views/VideoDetail'
+
 
 Vue.use(Router)
 
@@ -10,6 +35,108 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index
+    },
+    {
+      path: '/main',
+      name: 'Main',
+      component: Main,
+      children: [
+        {
+          path: '/my_training',
+          name: 'MyTraining',
+          component: MyTraining,
+        }
+        , {
+          path: '/drill',
+          name: 'Drill',
+          redirect: '/drill_recommend',
+          component: Drill,
+          children: [
+            {
+              path: '/drill_recommend',
+              name: 'DrillRecommend',
+              component: DrillRecommend,
+            }
+            , {
+              path: '/plaza',
+              name: 'Plaza',
+              component: Plaza,
+            }
+          ]
+        },
+      ]
+    },
+    {
+      path: "/running",
+      name: "Running",
+      component: Running
+    },
+    {
+      path: "/running_setting",
+      name: "RunningSetting",
+      component: RunningSetting
+    },
+    {
+      path: "/all_history",
+      name: "AllHistory",
+      component: AllHistory
+    },
+
+
+    {
+      path: "/search",
+      name: "Search",
+      component: Search
+    },
+    {
+      path: "/video_drill",
+      name: "VideoDrill",
+      component: VideoDrill
+    },
+    {
+      path: "/training_plan",
+      name: "TrainingPlan",
+      component: TrainingPlan
+    },
+    {
+      path: "/movement_data",
+      redirect: '/movement_list',
+      name: "MovementData",
+      component: MovementData,
+      children: [
+        {
+          path: "/movement_list",
+          name: "MovementList",
+          component: MovementList,
+        }
+        ,
+        {
+          path: '/movement_part',
+          name: 'MovementPart',
+          component: MovementPart,
+        }
+      ]
     }
+    , {
+      path: '/plaza_detail',
+      name: PlazaDetail,
+      component: PlazaDetail
+    }
+    , {
+      path: '/plaza_search',
+      name: PlazaSearch,
+      component: PlazaSearch
+    }
+    , {
+      path: '/plaza_issue',
+      name: PlazaIssue,
+      component: PlazaIssue
+    }
+    , {
+      path: '/video_detail',
+      name: VideoDetail,
+      component: VideoDetail
+    }
+
   ]
 })
