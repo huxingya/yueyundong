@@ -25,9 +25,8 @@
                 <van-button type="primary" class="btn1" :disabled="zq" @click="tab">注册</van-button>
 
                 <p>注册即表示您同意<router-link to="/agreement" class="xian">用户协议</router-link>及<router-link to="/pact" class="xian">隐私条款</router-link></p>
-
-
             </van-tab>
+            <!--注册结束-->
             <van-tab title="登录">
                 <van-cell-group class="login">
                 <van-field
@@ -46,7 +45,6 @@
                 <van-button class="btn2" to="/wangji">忘记密码</van-button>
             </van-tab>
         </van-tabs>
-
     </div>
 </template>
 
@@ -96,37 +94,40 @@
                     method:'post',
                     url:'http://10.8.159.34:8080/useradd.do',
                     headers:{"Content-type":"application/x-www-form-urlencoded"},
-                    data:qs.stringify({code:this.code,password:this.password,phone:this.phone})
+                    data:qs.stringify({code:this.code,password:this.$md5(this.password),phone:this.phone})
 
                 }).then((data)=>{
                     console.log(data.data)
                     this.$router.push("/complete")
                 })
+
             },
             login(){
-                    axios({
-                        method:'post',
-                        url:'http://10.8.159.34:8080/login.do',
-                        headers:{"Content-type":"application/x-www-form-urlencoded"},
-                        data:qs.stringify({password:this.password1,phone:this.phone1})
-                    }).then((data)=>{
-                        console.log(data.data)
-                    })
+                axios({
+                    method:'post',
+                    url:'http://10.8.159.34:8080/login.do',
+                    headers:{"Content-type":"application/x-www-form-urlencoded"},
+                    data:qs.stringify({password:this.$md5(this.password1),phone:this.phone1})
+                }).then((data)=>{
+                    this.$toast("登录成功")
+                    if(data.data.code==1){
 
+                        this.$router.push("/main")
+                    }else{
+                        this.$toast("用户名或密码错误")
+                    }
+                })
             }
-
         }
-
-
     }
 </script>
 
 <style scoped>
    .login{
-       margin-top:60px;
+       margin-top:66px;
    }
    .btn{
-       margin-top: 80px;
+       /*margin-top: 80px;*/
    }
    .btn p{
        font-size: 12px;

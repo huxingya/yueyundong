@@ -13,6 +13,7 @@ import './assets/js/rem'
 
 import Share from 'vue-social-share'
 import 'vue-social-share/dist/client.css';
+import md5 from 'js-md5'
 
 import { Lazyload } from 'vant';
 
@@ -20,6 +21,8 @@ import { Lazyload } from 'vant';
 Vue.use(Lazyload);
 
 Vue.prototype.$axios = axios
+Vue.prototype.$md5 = md5
+
 Vue.use(VueAwesomeSwiper)
 
 Vue.use(Vant);

@@ -11,6 +11,9 @@ var mutations={
   setTapTabData:(state,param)=>{
     state.tapTabData=param.amount.tapTabData;
   },
+  upload:function (state,str) {
+      state.img = str
+  }
 
 };
 export default mutations;

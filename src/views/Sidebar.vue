@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="top van-hairline--bottom" @click="PersonalData">
+    <div class="top van-hairline--bottom">
       <!--            <van-icon name="cross" slot="left" class="cuo" @click.stop="onUserClick"/>-->
-      <van-icon name="arrow" slot="right" class="cuo1"/>
-      <van-uploader class="dian">
-        <h3>头像</h3>
+      <van-icon name="arrow" slot="right" class="cuo1" @click="PersonalData"/>
+      <van-uploader class="dian" :after-read="onRead">
+        <img :src="img" />
       </van-uploader>
       <h4>用户名</h4>
       <h5>
@@ -83,9 +83,12 @@
 </template>
 
 <script>
-
+  import {mapState} from "vuex"
   export default {
     name: "Sidebar",
+    computed:{
+      ...mapState(['img'])
+    },
     methods: {
       onUserClick() {
         this.$router.push("/my_training")
@@ -125,6 +128,9 @@
       },
       SetUp() {
         this.$router.push("/setup")
+      },
+      onRead(file) {
+        this.$store.commit("upload",file.content)
       }
     }
   }
@@ -165,7 +171,6 @@ section{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 1px solid #aaa;
     position: absolute;
     left: 150px;
     top: 40px;
@@ -196,6 +201,15 @@ section{
     bottom: 0;
     left: 0;
     color: #aaa;
+  }
+  .top img{
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    /*position: absolute;*/
+    left: 150px;
+    top: 40px;
+    z-index: 999;
   }
 
   section .huiyuan {
