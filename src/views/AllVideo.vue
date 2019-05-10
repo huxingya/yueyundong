@@ -34,8 +34,8 @@
       return {
         title: "视频训练",
         reqList: [
-          this.$axios.get('http://10.8.159.34:8080/alltheme.do'),
-          this.$axios.get('http://10.8.159.34:8080/theme.do')
+          this.$axios.get('http://www.k4me.top:8081/funsport-1.0/alltheme.do'),
+          this.$axios.get('http://www.k4me.top:8081/funsport-1.0/theme.do')
         ]
         , tabs: [
           {
@@ -62,7 +62,7 @@
         }
         this.$axios({
           method: 'GET',
-          url: 'http://10.8.159.34:8080/theme.do',
+          url: 'http://www.k4me.top:8081/funsport-1.0/theme.do',
           params: option
         }).then((data) => {
           _this.loading = false;
@@ -113,6 +113,7 @@
   width: 100%;
   top: 44px;
   left: 0;
+  z-index: 999;
 }
   .video-item {
     position: relative;

@@ -1,5 +1,8 @@
 <template>
   <section>
+    <div class="head">
+      <van-icon name="arrow-left" size="24px" tag="span" @click="back"/>
+    </div>
     <van-row type="flex" justify="center" algin="center" class="top-head">
       <van-icon name="play-circle-o" size="69px" tag="span"/>
     </van-row>
@@ -22,7 +25,7 @@
     <van-cell title="7次训练">
       <van-row type="flex" algin="center" justify="end">
         <van-icon name="comment-o" tag="span" size="16px"/>
-        <span style="font-size: 12px;line-height: 18px;margin-left: 5px">全部</span></van-row>
+        <span style="font-size: 12px;line-height: 18px;margin-left: 5px" @click="allShow=true">全部</span></van-row>
     </van-cell>
     <swiper class="swiper-videos" :options="swiperOption" ref="mySwiper">
       <!-- slides -->
@@ -125,7 +128,7 @@
     name: "VideoDetail",
     data() {
       return {
-        allShow: true,
+        allShow: false,
         swiperOption: {
           slidesPerView: 4,
           centeredSlides: true,
@@ -139,6 +142,9 @@
       }
     },
     methods: {
+      back(){
+        this.$router.go(-1);
+      },
       onLoad() {
         this.error = true;
         // 异步更新数据
@@ -160,10 +166,15 @@
 </script>
 
 <style scoped>
-
+  .head{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: transparent;
+  }
   .top-head {
     height: 200px;
-    background: red;
+    background: #EEEEEE;
   }
 
   .top-head span {
@@ -198,12 +209,12 @@
   }
 
   .swiper-slide {
-    background: red;
     margin-right: 10px;
   }
 
   .swiper-slide img {
     height: 60px;
+    width: 140px;
   }
 
   .swiper-slide p:first-of-type {

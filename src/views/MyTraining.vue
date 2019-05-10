@@ -1,8 +1,8 @@
 <template>
   <section>
     <van-nav-bar title="我的训练" left-arrow fixed @click-right="toRunClick" @click-left="onUserClick">
-      <van-icon name="user-circle-o" slot="left" size="20px" color="#101010"/>
-      <van-icon name="chart-trending-o" slot="right" size="20px" color="#101010"/>
+      <van-icon name="user-circle-o" slot="left" size="24px" color="#101010"/>
+      <van-icon name="chart-trending-o" slot="right" size="24px" color="#101010"/>
     </van-nav-bar>
     <article @click="onHistoryClick">
       <van-cell title="总训练时长"/>
@@ -52,7 +52,7 @@
 
 <style scoped>
   section {
-    padding-top: 44px;
+    padding-top: 46px;
   }
   article{
     background: #FFFFFF;

@@ -37,7 +37,7 @@
         var _this=this;
         this.$axios({
           method:'GET',
-          url:'http://10.8.159.34:8080/plan.do',
+          url:'http://www.k4me.top:8081/funsport-1.0/plan.do',
         }).then((data)=>{
           if(data.data.code==1){
             _this.items = data.data.data;
@@ -60,7 +60,7 @@
 
 <style scoped>
   section{
-    padding-top: 44px;
+    padding-top: 46px;
   }
   img {
     width: 356px;

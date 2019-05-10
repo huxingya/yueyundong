@@ -29,7 +29,7 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 44px;
+    padding-top: 46px;
     background: #eeeeee;
   }
 

@@ -57,7 +57,7 @@
         var _this=this;
         this.$axios({
           method:'GET',
-          url:'http://10.8.159.34:8080/actionvideolist.do',
+          url:'http://www.k4me.top:8081/funsport-1.0/actionvideolist.do',
           params:{placeid:this.actionType.placeid,sex:1}
         }).then((data)=>{
           console.log(data.data)
@@ -84,7 +84,7 @@
 
 <style scoped>
   .out-part {
-    padding-top: 84px;
+    padding-top: 86px;
   }
 
   .out-card {

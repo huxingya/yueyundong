@@ -36,9 +36,9 @@
           <van-cell :border="false" :title="item.name" class="custom-text"/>
           <swiper class="swiper-video" :options="swiperOptionVideo" ref="mySwiper">
             <!-- slides -->
-            <swiper-slide class="swiper-slide" v-for="(itemChild,indexChild) in item.list" :key="indexChild">
+            <swiper-slide class="swiper-slide" v-for="(itemChild,indexChild) in item.list" :key="indexChild" >
               <div class="swiper-slide-content">
-                <img :src="itemChild.img" :alt="itemChild.name">
+                <img :src="itemChild.img" :alt="itemChild.name" @click="tiaozhuan">
                 <p>{{itemChild.name}}</p>
                 <p>{{itemChild.people}}人训练过</p>
               </div>
@@ -140,8 +140,8 @@
           {title: "计时器", iconName: "clock-o", url: "/video_drill"}
         ]
         ,reqList: [
-          this.$axios.get('http://10.8.159.34:8080/alltraining.do'),
-          this.$axios.get('http://10.8.159.34:8080/actionType.do')
+          this.$axios.get('http://www.k4me.top:8081/funsport-1.0/alltraining.do'),
+          this.$axios.get('http://www.k4me.top:8081/funsport-1.0/actionType.do')
         ]
         ,plans:[]
         ,videoList:[]
@@ -166,12 +166,19 @@
           },
         },
         swiperOptionVideo: {
-          slidesPerView : 3,
+          // slidesPerView : 3,
+          slidesPerView: 'auto',
           centeredSlides : true,
+          observer:true,
+          paginationClickable: true,
+          spaceBetween: 20
         },
         swiperOptionCoach: {
-          slidesPerView : 7,
+          slidesPerView: 'auto',
           centeredSlides : true,
+          observer:true,
+          paginationClickable: true,
+          spaceBetween: 20
         }
       }
     },
@@ -183,6 +190,10 @@
           })
         }
       },
+      tiaozhuan(){
+        this.$router.push("/video_detail");
+      }
+    ,
       onToolClick(url) {
         this.$router.push(url);
       },
@@ -300,7 +311,7 @@
     bottom: 10px;
   }
   .swiper-slide{
-    margin-right: 60px;
+    width: 202px;
   }
   .swiper-video img {
     width: 202px;
@@ -308,7 +319,7 @@
   }
 
   .swiper-video {
-    margin-left: -160px;
+    margin-left: -135px;
   }
 
   .swiper-coach img {
@@ -317,10 +328,10 @@
   }
 
   .swiper-coach {
-    margin-left: -250px;
+    margin-left: -270px;
   }
   .swiper-coach .swiper-slide-coach{
-    margin-right: 20px;
+    width: 72px;
   }
   .swiper-slide-coach>div{
     position: relative;

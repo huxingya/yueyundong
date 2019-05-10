@@ -79,7 +79,7 @@
                 }else{
                     axios({
                         method:'post',
-                        url:'http://10.8.159.34:8080/phonecode.do',
+                        url:'http://www.k4me.top:8081/funsport-1.0/phonecode.do',
                         headers:{"Content-type":"application/x-www-form-urlencoded"},
                         data:qs.stringify({phone:this.phone})
                     }).then((data)=>{
@@ -94,7 +94,7 @@
             tab(){
                 axios({
                     method:'post',
-                    url:'http://10.8.159.34:8080/useradd.do',
+                    url:'http://www.k4me.top:8081/funsport-1.0/useradd.do',
                     headers:{"Content-type":"application/x-www-form-urlencoded"},
                     data:qs.stringify({code:this.code,password:this.password,phone:this.phone})
 
@@ -106,7 +106,7 @@
             login(){
                     axios({
                         method:'post',
-                        url:'http://10.8.159.34:8080/login.do',
+                        url:'http://www.k4me.top:8081/funsport-1.0/login.do',
                         headers:{"Content-type":"application/x-www-form-urlencoded"},
                         data:qs.stringify({password:this.password1,phone:this.phone1})
                     }).then((data)=>{

@@ -43,7 +43,7 @@
 
 <style scoped>
   section {
-    padding-top: 44px;
+    padding-top: 46px;
   }
   .last-item{
     margin-top: 10px;

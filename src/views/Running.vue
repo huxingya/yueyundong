@@ -1,25 +1,38 @@
 <template>
   <section>
-    <van-nav-bar title="户外跑步" left-arrow fixed @click-right="onRunSetClick" @click-left="onClickLeft">
-      <van-icon name="arrow-left" slot="left" size="20px" color="#101010"/>
-      <van-icon name="wap-nav" slot="right" size="20px" color="#101010" click="toRunClick"/>
+    <van-nav-bar  left-arrow fixed :border="false" @click-right="onRunSetClick" @click-left="onClickLeft" class="head" v-show="true">
+      <van-icon name="arrow-left" slot="left" size="20px" color="#FFFFFF"/>
+      <span slot="title" style="color: #FFFFFF">户外跑步</span>
+      <van-icon name="wap-nav" slot="right" size="20px" color="#FFFFFF" click="toRunClick"/>
     </van-nav-bar>
     <article>
       <van-swipe  indicator-color="white"  @change="onChange">
         <van-swipe-item>
-          <div class="banner-item">自由跑</div>
+          <div class="banner-item"><p>0.00</p><p>Km</p></div>
         </van-swipe-item>
-        <van-swipe-item>
-          <div class="banner-item"></div>
-        </van-swipe-item>
-        <van-swipe-item>
-          <div class="banner-item"></div>
-        </van-swipe-item>
-        <van-swipe-item>
-          <div class="banner-item"></div>
-        </van-swipe-item>
+<!--        <van-swipe-item>-->
+<!--          <div class="banner-item">-->
+<!--            <van-row type="flex" justify="space-between">-->
+<!--               <van-col>-</van-col>-->
+<!--               <van-col>-->
+<!--                 <van-row>-->
+<!--                   <p>卡路里跑</p>-->
+<!--                   <p>100</p>-->
+<!--                   <p>Kcal</p>-->
+<!--                 </van-row>-->
+<!--               </van-col>-->
+<!--               <van-col>+</van-col>-->
+<!--            </van-row>-->
+<!--          </div>-->
+<!--        </van-swipe-item>-->
+<!--        <van-swipe-item>-->
+<!--          <div class="banner-item"></div>-->
+<!--        </van-swipe-item>-->
+<!--        <van-swipe-item>-->
+<!--          <div class="banner-item"></div>-->
+<!--        </van-swipe-item>-->
       </van-swipe>
-      <van-row type="flex" justify="space-between">
+      <van-row type="flex" justify="space-between" >
         <van-col span="6" class="statistics"><p>--</p>
           <p>Min/Km</p></van-col>
         <van-col span="6" class="statistics"><p>00:00:00</p>
@@ -65,18 +78,43 @@
 
 <style scoped>
   section {
-    padding-top: 44px;
+    padding-top: 46px;
+    background: #282A2E;
+    height: 100vh;
+  }
+  .head{
+    background: transparent
   }
 
   .banner-item {
     height: 250px;
-    background: red;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    justify-content: center;
+    text-align: center;
   }
+  .banner-item p:nth-of-type(1){
+    font-size: 60px;
 
+  }
+  .banner-item:nth-of-type(2){
+    background: #FE6633;
+
+  }
+  .banner-item:nth-of-type(3){
+    background: #FE6633;
+
+  }
+  .banner-item:nth-of-type(4){
+    background: #AACC00;
+
+  }
   .statistics p:first-of-type {
     font-size: 18px;
     text-align: center;
     line-height: 30px;
+    color: #D4D4D4;
   }
 
   .statistics p:last-of-type {

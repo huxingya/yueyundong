@@ -28,6 +28,7 @@ import PlazaIssue from '@/views/PlazaIssue'
 import VideoDetail from '@/views/VideoDetail'
 
 import Shopping from '@/views/Shopping'
+import GoodsDetail from '@/views/GoodsDetail'
 
 
 Vue.use(Router)
@@ -111,11 +112,7 @@ export default new Router({
               name:'Flash',
               component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Flash")
           },
-          {
-              path:'/sidebar',
-              name:'Sidebar',
-              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Sidebar")
-          },
+
           {
               path:'/personaldata',
               name:'PersonalData',
@@ -227,6 +224,11 @@ export default new Router({
             }
           ]
         },
+        {
+          path:'/sidebar',
+          name:'Sidebar',
+          component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Sidebar")
+        },
       ]
     },
     {
@@ -304,6 +306,11 @@ export default new Router({
       path: '/video_detail',
       name: VideoDetail,
       component: VideoDetail
+    }
+    , {
+      path: '/goods_detail',
+      name: GoodsDetail,
+      component: GoodsDetail
     }
   ]
 })
