@@ -84,7 +84,7 @@
 
 <style scoped>
   .out-part {
-    padding-top: 84px;
+    padding-top: 86px;
   }
 
   .out-card {

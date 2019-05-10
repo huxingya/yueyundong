@@ -60,7 +60,7 @@
 
 <style scoped>
   section{
-    padding-top: 44px;
+    padding-top: 46px;
   }
   img {
     width: 356px;

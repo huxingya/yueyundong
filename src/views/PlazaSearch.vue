@@ -31,6 +31,6 @@
 
 <style scoped>
   .content {
-    padding-top: 84px;
+    padding-top: 86px;
   }
 </style>
