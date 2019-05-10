@@ -21,6 +21,7 @@
                     :key="item"
                     :name="item"
                     class="box"
+
             >
                 <div class="check">
                     <div>
@@ -34,7 +35,7 @@
 
 
 
-        <van-button type="primary" class="btn" to="loading">下一步</van-button>
+        <van-button type="primary" class="btn" to="/my_training">下一步</van-button>
     </div>
 </template>
 
@@ -98,5 +99,6 @@
    }
     .box{
         margin-left: 20px;
+
     }
 </style>

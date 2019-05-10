@@ -14,7 +14,6 @@
   html,body{
     height: 100%;
     width: 100%;
-    background: #eee;
     color: #101010;
     font-size: 16px;
   }

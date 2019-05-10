@@ -108,10 +108,76 @@ export default new Router({
               component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Flash")
           },
           {
-              path:'/shopmall',
-              name:'ShopMall',
-              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/ShopMall")
+              path:'/sidebar',
+              name:'Sidebar',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Sidebar")
+          },
+          {
+              path:'/personaldata',
+              name:'PersonalData',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/PersonalData")
+          },
+          {
+              path:'/mymsg',
+              name:'MyMsg',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/MyMsg")
+          },
+          {
+              path:'/myorder',
+              name:'MyOrder',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/MyOrder")
+          },
+          {
+              path:'/coupon',
+              name:"Coupon",
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Coupon")
+          },
+          {
+              path:'/redeemcode',
+              name:'RedeemCode',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/RedeemCode")
+          },
+          {
+              path: '/invitation',
+              name: 'Invitation',
+              component: () => import(/* webpackChunkName: "Screen" */ "@/views/Invitation")
+          },
+          {
+              path:'/invita',
+              name:"Invita",
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Invita")
+          },
+          {
+              path:'/bodydata',
+              name:'BodyData',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/BodyData")
+          },
+          {
+              path:'/integral',
+              name:'Integral',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Integral")
+          },
+          {
+              path:'/collection',
+              name:'Collection',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Collection")
+          },
+          {
+              path:'/download',
+              name:'Download',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Download")
+          },
+          {
+              path:'/follow',
+              name:'Follow',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/Follow")
+          },
+          {
+              path:'/setup',
+              name:'SetUp',
+              component:()=>import(/* webpackChunkName: "Screen" */ "@/views/SetUp")
           }
+
       ]
 
     },

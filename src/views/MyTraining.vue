@@ -1,6 +1,6 @@
 <template>
   <section>
-    <van-nav-bar title="我的训练" left-arrow fixed @click-right="toRunClick">
+    <van-nav-bar title="我的训练" left-arrow fixed @click-right="toRunClick" @click-left="onUserClick">
       <van-icon name="user-circle-o" slot="left" size="20px" color="#101010"/>
       <van-icon name="chart-trending-o" slot="right" size="20px" color="#101010"/>
     </van-nav-bar>
@@ -34,6 +34,9 @@
       },
       onHistoryClick(){
         this.$router.push("/all_history")
+      },
+      onUserClick(){
+        this.$router.push("/sidebar")
       }
     }
   }
