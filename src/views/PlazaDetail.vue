@@ -30,6 +30,5 @@
 <style scoped>
   section{
     padding-top: 44px;
-    background: #FFFFFF;
   }
 </style>

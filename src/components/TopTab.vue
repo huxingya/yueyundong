@@ -1,6 +1,6 @@
 <template>
   <van-row class="out-top-tab">
-    <van-col :span="span" class="top-tab-item" v-for="(item,index) in data" :key="index">
+    <van-col :span="span" class="top-tab-item" v-for="(item,index) in datas" :key="index">
       <div>
         <span>{{item}}</span>
         <van-icon name="arrow-down"/>
@@ -12,18 +12,20 @@
 <script>
   export default {
     name: "TopTab",
+    props:["data"]
+    ,
     data(){
       return{
-        data:[]
+         datas:[]
       }
     },
     computed:{
       span:function () {
-        return 24/this.data.length
+        return 24/this.datas.length
       }
     },
     created() {
-      this.data = ["部位","器械","教练"]
+      this.datas = this.$props.data
     }
   }
 </script>

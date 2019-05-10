@@ -1,9 +1,9 @@
 <template>
     <div class="content">
-      <div v-for="item in data" @click="">
+      <router-link tag="div" v-for="(item,index) in data" :key="index" :to="{path:'/movement_part',query:{actionType:JSON.stringify(item)}}">
         <p>{{item.place}}</p>
         <p>{{item.num}}个动作</p>
-      </div>
+      </router-link>
     </div>
 </template>
 
@@ -30,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 44px;
+    background: #eeeeee;
   }
 
   .content div {

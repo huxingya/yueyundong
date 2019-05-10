@@ -54,14 +54,12 @@
       onToPlazaDetil(value) {
         this.$router.push({path:"/plaza_detail",query:{name:value}})
       }
-    }
+    },
+
   }
 </script>
 
 <style scoped>
-  .out-btn, .out-new, .out-choiceness,.out-img {
-    background: #FFFFFF;
-  }
 
   section {
     padding-top: 44px
@@ -72,7 +70,8 @@
   }
 
   .out-new {
-    margin: 10px 0;
+    border-top: 10px solid #EEEEEE;
+    border-bottom: 10px solid #EEEEEE;
     font-size: 14px;
   }
 
@@ -92,7 +91,8 @@
   }
 
   .out-img {
-    margin: 16px 0 8px 0;
+    border-top: 16px solid #EEEEEE;
+    border-bottom: 8px solid #EEEEEE;
     padding: 10px 0;
   }
 

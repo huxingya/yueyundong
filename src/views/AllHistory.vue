@@ -1,6 +1,6 @@
 <template>
   <section>
-    <van-nav-bar left-arrow fixed @click-right="onClickRight">
+    <van-nav-bar left-arrow fixed @click-right="onClickRight" @click-left="onClickLeft">
       <van-icon name="arrow-left" slot="left" size="20px" color="#101010"/>
       <span slot="title">全部训练历史&nbsp;&nbsp;<van-icon name="arrow-down" slot="left" size="20px" color="#101010"/></span>
       <van-icon name="share" slot="right" size="20px" color="#101010"/>
@@ -74,6 +74,9 @@
       DateTabs
     },
     methods: {
+      onClickLeft(){
+        this.$router.go(-1)
+      },
       onClickRight(){
         this.isShareShow=true
       },
@@ -108,7 +111,6 @@
 <style scoped>
   section {
     padding-top: 80px;
-    background: #FFFFFF;
   }
 
   .total-time {

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Main from '@/views/Main'
 import MyTraining from '@/views/MyTraining'
 import Drill from '@/views/Drill'
+import Find from '@/views/Find'
 
 
 import Running from '@/views/Running'
@@ -18,12 +19,15 @@ import TrainingPlan from '@/views/TrainingPlan'
 import MovementData from '@/views/MovementData'
 import MovementList from '@/views/MovementList'
 import MovementPart from '@/views/MovementPart'
+import AllVideo from '@/views/AllVideo'
 
 import PlazaDetail from '@/views/PlazaDetail'
 import PlazaSearch from '@/views/PlazaSearch'
 import PlazaIssue from '@/views/PlazaIssue'
 
 import VideoDetail from '@/views/VideoDetail'
+
+import Shopping from '@/views/Shopping'
 
 
 Vue.use(Router)
@@ -185,6 +189,7 @@ export default new Router({
       path: '/main',
       name: 'Main',
       component: Main,
+      redirect: '/my_training',
       children: [
         {
           path: '/my_training',
@@ -206,6 +211,19 @@ export default new Router({
               path: '/plaza',
               name: 'Plaza',
               component: Plaza,
+            }
+          ]
+        },
+        , {
+          path: '/find',
+          name: 'Find',
+          redirect: '/shopping',
+          component: Find,
+          children: [
+            {
+              path: '/shopping',
+              name: 'Shopping',
+              component: Shopping,
             }
           ]
         },
@@ -262,6 +280,11 @@ export default new Router({
         }
       ]
     },
+    {
+      path: '/all_video',
+      name: AllVideo,
+      component: AllVideo
+    }
     , {
       path: '/plaza_detail',
       name: PlazaDetail,

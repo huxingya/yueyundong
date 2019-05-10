@@ -1,19 +1,26 @@
 <template>
   <div class="out-part">
-    <TopTab></TopTab>
+    <TopTab :data="tabs"></TopTab>
     <div>
-      <van-row class="out-card" v-for="(item,index) in data" :key="index">
-        <van-col><img
-          src="https://w2.dwstatic.com/yy/ojiastoreimage/20160429_621bb9e534150cb33800359dbdef0e57.jpg?imageview/2/0/w/361/blur/1/format/webp"
-          alt=""></van-col>
-        <van-col>
-          <van-row class="card-text">
-            <p>{{item.name}}</p>
-            <p>{{item.instrument}}</p>
-          </van-row>
-        </van-col>
-      </van-row>
-
+      <van-list
+        v-model="loading"
+        :error.sync="error"
+        :finished="finished"
+        error-text="请求失败，点击重新加载"
+        @load="onLoad"
+      >
+        <van-row class="out-card" v-for="(item,index) in data" :key="index">
+          <van-col><img
+            src="https://w2.dwstatic.com/yy/ojiastoreimage/20160429_621bb9e534150cb33800359dbdef0e57.jpg?imageview/2/0/w/361/blur/1/format/webp"
+            alt=""></van-col>
+          <van-col>
+            <van-row class="card-text">
+              <p>{{item.name}}</p>
+              <p>{{item.instrument}}</p>
+            </van-row>
+          </van-col>
+        </van-row>
+      </van-list>
     </div>
   </div>
 </template>
@@ -25,57 +32,49 @@
     name: "MovementPart",
     data(){
       return{
-        tabs:["部位","器械","教练"],
-        data:[]
+        actionType:"",
+        tabs:["部位","教练"],
+        data:[],
+        error: false,
+        loading: false,
+        finished: false
       }
     },
     components: {
       TopTab
     },
     created() {
-      console.log(JSON.parse(this.$route.query.actionType))
-      if (JSON.parse(this.$route.query.actionType)){
+      this.actionType= JSON.parse(this.$route.query.actionType);
+
+      if (this.actionType){
         this.tabs.splice(0,1,JSON.parse(this.$route.query.actionType).place)
       }
-      console.log(this.tabs)
-      this.data=[
-        {
-          "id": 39,
-          "name": "四足臂屈伸",
-          "picture": "https://w2.dwstatic.com/yy/ojiastoreimage/20160429_621bb9e534150cb33800359dbdef0e57.jpg?imageview/2/0/w/361/blur/1/format/webp",
-          "video": null,
-          "action": null,
-          "imgleft": null,
-          "imgright": null,
-          "place": null,
-          "instrument": "徒手",
-          "sex": null
-        },
-        {
-          "id": 41,
-          "name": "肱三头肌拉伸 L",
-          "picture": "https://w2.dwstatic.com/yy/ojiastoreimage/20160429_d290e46333564af0383fa1d0cbe85742.jpg?imageview/2/0/w/361/blur/1/format/webp",
-          "video": null,
-          "action": null,
-          "imgleft": null,
-          "imgright": null,
-          "place": null,
-          "instrument": "徒手",
-          "sex": null
-        },
-        {
-          "id": 43,
-          "name": "肱三头肌拉伸 R",
-          "picture": "https://w2.dwstatic.com/yy/ojiastoreimage/20160429_3e13ca29d49c0921f8f525f16a1e71a9.jpg?imageview/2/0/w/361/blur/1/format/webp",
-          "video": null,
-          "action": null,
-          "imgleft": null,
-          "imgright": null,
-          "place": null,
-          "instrument": "徒手",
-          "sex": null
-        }
-      ]
+      this.reqData();
+      console.log(this.actionType,this.tabs)
+    },
+    methods:{
+      reqData(){
+        var _this=this;
+        this.$axios({
+          method:'GET',
+          url:'http://10.8.159.34:8080/actionvideolist.do',
+          params:{placeid:this.actionType.placeid,sex:1}
+        }).then((data)=>{
+          console.log(data.data)
+          if(data.data.code==1){
+            _this.data = data.data.data;
+            _this.loading=false;
+            _this.finished=true;
+          }else {
+            _this.error= true;
+          }
+        }).catch((err)=>{
+          _this.error= true;
+        })
+      },
+      onLoad() {
+
+      }
     },
     mounted() {
 

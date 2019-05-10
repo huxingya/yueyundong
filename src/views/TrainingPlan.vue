@@ -2,15 +2,15 @@
   <div>
     <Head :title="title" :rightShow="false"></Head>
     <section>
-      <van-row class="out-drill-item" type="flex" align="bottom" v-for="(item,index) in items" :key="index">
-        <van-col>
-          <van-cell :title="item.title" class="content">
-            <template slot="label">
-              <span class="custom-text">{{item.title}}</span>
-            </template>
-          </van-cell>
-        </van-col>
-      </van-row>
+      <van-list
+        v-model="loading"
+        :error.sync="error"
+        :finished="finished"
+        error-text="请求失败，点击重新加载"
+        @load="reqData"
+      >
+        <img :src="item.img" alt="" v-for="(item,index) in items" :key="index">
+      </van-list>
     </section>
   </div>
 </template>
@@ -23,27 +23,37 @@
     data(){
       return{
         title: "",
-        items: [
-          {title:1,imgUrl:""},
-          {title:2,imgUrl:""},
-          {title:3,imgUrl:""},
-          {title:4,imgUrl:""},
-          {title:5,imgUrl:""},
-          {title:6,imgUrl:""},
-          {title:7,imgUrl:""},
-          {title:8,imgUrl:""},
-          {title:9,imgUrl:""},
-          {title:1,imgUrl:""},
-          {title:1,imgUrl:""},
-          {title:1,imgUrl:""},
-        ]
+        error: false,
+        loading: false,
+        finished: false,
+        items:  []
       }
     },
     components: {
       Head
     },
+    methods:{
+      reqData(){
+        var _this=this;
+        this.$axios({
+          method:'GET',
+          url:'http://10.8.159.34:8080/plan.do',
+        }).then((data)=>{
+          if(data.data.code==1){
+            _this.items = data.data.data;
+            _this.loading=false;
+            _this.finished=true;
+          }else {
+            _this.error= true;
+          }
+        }).catch((err)=>{
+          _this.error= true;
+        })
+      },
+    },
     created() {
       this.title = this.$route.query.title;
+      this.reqData();
     }
   }
 </script>
@@ -52,7 +62,7 @@
   section{
     padding-top: 44px;
   }
-  .out-drill-item {
+  img {
     width: 356px;
     height: 125px;
     background: red;

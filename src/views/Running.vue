@@ -1,6 +1,6 @@
 <template>
   <section>
-    <van-nav-bar title="户外跑步" left-arrow fixed @click-right="onRunSetClick">
+    <van-nav-bar title="户外跑步" left-arrow fixed @click-right="onRunSetClick" @click-left="onClickLeft">
       <van-icon name="arrow-left" slot="left" size="20px" color="#101010"/>
       <van-icon name="wap-nav" slot="right" size="20px" color="#101010" click="toRunClick"/>
     </van-nav-bar>
@@ -40,6 +40,9 @@
   export default {
     name: "Running",
     methods:{
+      onClickLeft(){
+        this.$router.go(-1)
+      },
       onRunSetClick(){
         this.$router.push("/running_setting")
       },

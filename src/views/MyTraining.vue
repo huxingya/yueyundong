@@ -38,6 +38,14 @@
       onUserClick(){
         this.$router.push("/sidebar")
       }
+    },
+    created() {
+      this.$store.commit({
+        type: 'setMainTabIndex',
+        amount: {
+          mainTabIndex: 0
+        }
+      });
     }
   }
 </script>

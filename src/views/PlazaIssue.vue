@@ -39,7 +39,6 @@
 <style scoped>
   section {
     height: 100vh;
-    background: #FFFFFF;
   }
 
   .head-close {

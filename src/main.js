@@ -14,6 +14,11 @@ import './assets/js/rem'
 import Share from 'vue-social-share'
 import 'vue-social-share/dist/client.css';
 
+import { Lazyload } from 'vant';
+
+// options 为可选参数，无则不传
+Vue.use(Lazyload);
+
 Vue.prototype.$axios = axios
 Vue.use(VueAwesomeSwiper)
 
